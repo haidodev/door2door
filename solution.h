@@ -12,7 +12,7 @@ private:
     void assign_route();
 };
 Solution::Solution(){
-    this -> route = generate_permutation(NUM_OF_POINTS + NUM_OF_TECHNICIANS - 1);
+    this -> route = generate_permutation(num_of_points + NUM_OF_TECHNICIANS - 1);
     assign_route();
     this -> objective_value = evaluate_objective_value();
 }
@@ -24,7 +24,7 @@ Solution::Solution(vector<Technician> technicians){
 void Solution::assign_route(){
     Technician tmp_technician = Technician();
     for (int point : this -> route) {
-        if (point > NUM_OF_POINTS) {
+        if (point > num_of_points) {
             tmp_technician.end_route();
             (this -> technicians).push_back(tmp_technician);
             tmp_technician = Technician();

@@ -8,6 +8,7 @@
 
 using namespace std;
 double graph[MAX_P][MAX_P];
+int num_of_points;
 int rand_range(int lowbound, int upbound = -1){
     if (upbound == -1) return rand_range(0, lowbound);
     return rand() % (upbound - lowbound) + lowbound;
@@ -21,9 +22,9 @@ vector<int> generate_permutation(int n){
 void read_graph(){
     ifstream fi("graph.txt");
     int n;
-    fi >> n;
-    for (int i = 0; i <= n; ++i){
-        for (int j = 0; j <= n; ++j){
+    fi >> num_of_points;
+    for (int i = 0; i <= num_of_points; ++i){
+        for (int j = 0; j <= num_of_points; ++j){
             fi >> graph[i][j];
         }
     }

@@ -8,7 +8,7 @@ using namespace std;
 int main(){
     ofstream fo("graph.txt");
     srand(time(NULL));
-    int n = 5;
+    int n = 10;
     double graph[MAX_P][MAX_P];
     for (int i = 0; i <= n; ++i){
         graph[i][i] = 0;

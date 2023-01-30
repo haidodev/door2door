@@ -4,7 +4,8 @@ public:
     Solution();
     Solution(vector<Technician> technicians);
     void show_solution();
-    void local_search();
+    Solution swap_segment_and_point();
+    Solution insert_segment_after_point();
 private:
     vector<int> route;
     vector<Technician> technicians;
@@ -44,10 +45,15 @@ void Solution::show_solution(){
     for (Technician tech : this -> technicians) tech.print_route();
     cout << "OBJECTIVE VALUE: " << this -> objective_value << endl << endl;
 }
-void Solution::local_search(){
+Solution Solution::swap_segment_and_point(){
     int idx = rand_range((this -> technicians).size());
-    this -> objective_value -= (this -> technicians)[idx].total_wait_time; 
-    (this -> technicians)[idx] = (this -> technicians)[idx].local_search();
-    this -> objective_value += (this -> technicians)[idx].total_wait_time; 
-
+    vector<Technician> new_technicians = this -> technicians;
+    new_technicians[idx] = new_technicians[idx].swap_segment_and_point();
+    return Solution(new_technicians);
+}
+Solution Solution::insert_segment_after_point(){
+    int idx = rand_range((this -> technicians).size());
+    vector<Technician> new_technicians = this -> technicians;
+    new_technicians[idx] = new_technicians[idx].insert_segment_after_point();
+    return Solution(new_technicians);
 }

@@ -87,7 +87,7 @@ Technician Technician::insert_segment_after_point(){
     int segment[] = {rand_range(1, route_len - 2), -1}, point = rand_range(1, route_len - 1);
     segment[1] = segment[0] + 1;
     while (point == segment[0] || point == segment[1]) {
-        point = rand_range(1, route_len);
+        point = rand_range(1, route_len - 1);
     }
     vector<int> new_route;
     if (segment[0] < point) {

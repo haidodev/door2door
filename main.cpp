@@ -1,4 +1,4 @@
-#include"init.h"
+#include "init.h"
 #include "technicians.h"
 #include "solution.h"
 
@@ -10,9 +10,10 @@ int main(){
     for (int i = 0; i < 5; ++i){
         Solution sol2 = sol1.insert_segment_after_point();
         sol2.show_solution();
+        sol1 = sol2;
     }
-    for (int i = 0; i < 10; ++i){
-        Solution sol2 = sol1.swap_segment_and_point();
-        sol2.show_solution();
-    }
+    // for (int i = 0; i < 10; ++i){
+    //     Solution sol2 = sol1.swap_segment_and_point();
+    //     sol2.show_solution();
+    // }
 }
